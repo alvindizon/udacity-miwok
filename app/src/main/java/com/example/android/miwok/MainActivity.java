@@ -20,6 +20,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -30,14 +31,20 @@ public class MainActivity extends AppCompatActivity {
         // Set the content of the activity to use the activity_main.xml layout file
         setContentView(R.layout.activity_main);
 
-        // create a new object instance of the event listener
-        NumbersClickListener clickListener = new NumbersClickListener();
 
         // Find the view where we want to listen for clicks
         TextView numbersTextView = (TextView)findViewById(R.id.numbers);
 
-        //attach the listener to a view that we want to listen clicks for
-        numbersTextView.setOnClickListener(clickListener);
+        // create anonymous inner class for listener, combines step 2 and 3 for listeners
+        // this makes the need for a separate java file for our listener totally unnecessary
+        numbersTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // executed in an Activity, so 'this' is the context
+                Intent numbersIntent = new Intent(MainActivity.this, NumbersActivity.class);
+                startActivity(numbersIntent);
+            }
+        });
     }
 
     /**
