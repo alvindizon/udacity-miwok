@@ -19,6 +19,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -28,15 +29,15 @@ public class MainActivity extends AppCompatActivity {
 
         // Set the content of the activity to use the activity_main.xml layout file
         setContentView(R.layout.activity_main);
-    }
 
-    /**
-     * This method displays the Numbers screen if the Numbers button is clicked.
-     */
-    public void openNumbersList(View view){
-        // executed in an Activity, so 'this' is the context
-        Intent i = new Intent(this, NumbersActivity.class);
-        startActivity(i);
+        // create a new object instance of the event listener
+        NumbersClickListener clickListener = new NumbersClickListener();
+
+        // Find the view where we want to listen for clicks
+        TextView numbersTextView = (TextView)findViewById(R.id.numbers);
+
+        //attach the listener to a view that we want to listen clicks for
+        numbersTextView.setOnClickListener(clickListener);
     }
 
     /**
