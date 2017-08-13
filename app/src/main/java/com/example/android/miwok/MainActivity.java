@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         // Find the view where we want to listen for clicks
-        TextView numbersTextView = (TextView)findViewById(R.id.numbers);
+        TextView numbersTextView = (TextView) findViewById(R.id.numbers);
 
         // create anonymous inner class for listener, combines step 2 and 3 for listeners
         // this makes the need for a separate java file for our listener totally unnecessary
@@ -45,34 +45,34 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(numbersIntent);
             }
         });
-    }
 
-    /**
-     * This method displays the Phrases screen if the Phrases button is clicked.
-     */
-    public void openPhrasesList(View view){
-        // executed in an Activity, so 'this' is the context
-        Intent i = new Intent(this, PhrasesActivity.class);
-        startActivity(i);
-    }
+        // do this again for other textviews
+        TextView phrasesTextView = (TextView) findViewById(R.id.phrases);
+        phrasesTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MainActivity.this, PhrasesActivity.class);
+                startActivity(i);
+            }
+        });
 
-    /**
-     * This method displays the Family screen if the Family button is clicked.
-     */
-    public void openFamilyList(View view){
-        // executed in an Activity, so 'this' is the context
-        Intent i = new Intent(this, FamilyActivity.class);
-        startActivity(i);
-    }
+        TextView familyTextView = (TextView) findViewById(R.id.family);
+        familyTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MainActivity.this, FamilyActivity.class);
+                startActivity(i);
+            }
+        });
 
-    /**
-     * This method displays the Colors screen if the Colors button is clicked.
-     */
-    public void openColorsList(View view){
-        // executed in an Activity, so 'this' is the context
-        Intent i = new Intent(this, ColorsActivity.class);
-        startActivity(i);
+        TextView colorsTextView = (TextView) findViewById(R.id.colors);
+        colorsTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MainActivity.this, ColorsActivity.class);
+                startActivity(i);
+            }
+        });
     }
-
 
 }
