@@ -3,7 +3,9 @@ package com.example.android.miwok;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -31,13 +33,24 @@ public class NumbersActivity extends AppCompatActivity {
         words.add("nine");
         words.add("ten");
 
-        LinearLayout rootView = (LinearLayout)findViewById(R.id.rootView);
 
-        //create a textview showing one of the words, and add it as a child view of NumbersActivity
-        for(int i = 0; i < words.size(); i++){
-            TextView wordView = new TextView(this);
-            wordView.setText(words.get(i));
-            rootView.addView(wordView);
-        }
+        /**initialize the adapter :
+         * 1. specify the type of item to be converted to a view
+         * 2. supply the context, XML item layout where the words will be shown, and the data array
+         */
+        ArrayAdapter<String> itemsAdapter =
+                new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, words);
+
+        /** connect the adapter to a listView object
+         * this object should be specified by an ID*
+         */
+        ListView listView = (ListView) findViewById(R.id.list);
+
+        /**call the setAdapter method on the listView and pass the adapter as the argument
+         * this will convert the values on the array into a view and then the result will be assigned
+         * as the value of a textView (simple_list_item_1)
+        */
+        listView.setAdapter(itemsAdapter);
+
     }
 }
