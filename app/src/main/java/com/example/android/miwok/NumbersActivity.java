@@ -45,13 +45,13 @@ public class NumbersActivity extends AppCompatActivity {
         /** connect the adapter to a gridView object
          * this object should be specified by an ID*
          */
-        GridView gridView = (GridView) findViewById(R.id.grid);
+        ListView listView = (ListView) findViewById(R.id.list);
 
         /**call the setAdapter method on the gridView and pass the adapter as the argument
          * this will convert the values on the array into a view and then the result will be assigned
          * as the value of a textView (simple_list_item_1)
         */
-        gridView.setAdapter(itemsAdapter);
+        listView.setAdapter(itemsAdapter);
 
     }
 }
