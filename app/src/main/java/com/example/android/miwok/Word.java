@@ -8,34 +8,21 @@ import android.content.Context;
 
 public class Word {
     //Miwok translation of word
-    private String miwokTranslation;
+    private String mMiwokTranslation;
 
     // Default language translation
-    private String defaultTranslation;
+    private String mDefaultTranslation;
 
     /**
-     * Constructs a new Word class
+     *  Constructor for new Word class
+     * @param defaultTranslation is the word in a language that the user is already familiar with
+     *                           (e.g., English)
+     * @param miwokTranslation is equivalent word in the Miwok language
      */
-    public Word(Context context) {
-        miwokTranslation = "";
-        defaultTranslation = "";
+    public Word(String defaultTranslation, String miwokTranslation) {
+        mMiwokTranslation = miwokTranslation;
+        mDefaultTranslation = defaultTranslation;
 
-    }
-
-    /**
-     *  Sets the Miwok Translation
-     * @param text is the updated Miwok translation
-     */
-    public void setMiwokTranslation(String text) {
-        miwokTranslation = text;
-    }
-
-    /**
-     *  Sets the default translation
-     * @param text is the updated default translation
-     */
-    public void setDefaultTranslation(String text) {
-        defaultTranslation = text;
     }
 
     /**
@@ -43,7 +30,7 @@ public class Word {
      * @return current default translation
      */
     public String getDefaultTranslation(){
-        return defaultTranslation;
+        return mDefaultTranslation;
     }
 
     /**
@@ -51,7 +38,7 @@ public class Word {
      * @return current Miwok translation
      */
     public String getMiwokTranslation(){
-        return miwokTranslation;
+        return mMiwokTranslation;
     }
 
 }
