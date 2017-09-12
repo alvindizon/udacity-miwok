@@ -20,38 +20,26 @@ public class NumbersActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_numbers);
 
-        // create word arraylist
-        ArrayList<String> words = new ArrayList<>();
-        // add elements in Arraylist
-        words.add("one");
-        words.add("two");
-        words.add("three");
-        words.add("four");
-        words.add("five");
-        words.add("six");
-        words.add("seven");
-        words.add("eight");
-        words.add("nine");
-        words.add("ten");
+        // create an ArrayList of Word objects
+        ArrayList<Word> words = new ArrayList<>();
+        words.add(new Word("one", "lutti"));
+        words.add(new Word("two", "otiiko"));
 
 
-        /**initialize the adapter :
-         * 1. specify the type of item to be converted to a view
-         * 2. supply the context, XML item layout where the words will be shown, and the data array
-         */
-        ArrayAdapter<String> itemsAdapter =
-                new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, words);
+        // Create a WordAdapter, whose source is a list of Word objects
+        WordAdapter adapter = new WordAdapter(this, words);
 
         /** connect the adapter to a gridView object
          * this object should be specified by an ID*
          */
         ListView listView = (ListView) findViewById(R.id.list);
 
-        /**call the setAdapter method on the gridView and pass the adapter as the argument
-         * this will convert the values on the array into a view and then the result will be assigned
+        /**call the setAdapter method on the listView and pass the adapter as the argument
+         * this will convert the values on the Arraylist
+         * into a view and then the result will be assigned
          * as the value of a textView (simple_list_item_1)
         */
-        listView.setAdapter(itemsAdapter);
+        listView.setAdapter(adapter);
 
     }
 }
