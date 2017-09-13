@@ -18,14 +18,27 @@ import java.util.ArrayList;
 
 public class WordAdapter extends ArrayAdapter<Word> {
 
-    // constructor adapted from
-    //  ArrayAdapter (Context context, int resource,T[] objects)
-    //  we don't need the second arg (since it refers to a single textview resource ID)
-    //  so we set it to zero
+    /**
+     *   constructor adapted from ArrayAdapter (Context context, int resource,T[] objects)
+     *   we don't need the second arg (since it refers to a single textview resource ID)
+     *   so we set it to zero
+     * @param context Used to inflate layout file
+     * @param words  List of Word objects to display in a  list
+     */
     public WordAdapter(Activity context, ArrayList<Word> words){
         super(context, 0, words);
     }
 
+    /**
+     * Manually handles getting the view to be reused, and then
+     * displays the specified view
+     *
+     * @param position       Position in the list of data objects  that should be displayed
+     *                       in the view
+     * @param convertView    View to be reused and inflated
+     * @param parent         parent ViewGroup
+     * @return               the view that will be used by the AdapterView(listview, gridview, etc)
+     */
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         // check if view is being reused
