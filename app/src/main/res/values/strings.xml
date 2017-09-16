@@ -28,4 +28,7 @@
     <!-- Category name for the vocabulary words for family members [CHAR LIMIT=20] -->
     <string name="category_family">Family Members</string>
 
+    <!-- Category name for the vocabulary words for report card [CHAR LIMIT=20] -->
+    <string name="category_report_card">Report Card</string>
+
 </resources>

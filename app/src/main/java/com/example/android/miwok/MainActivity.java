@@ -15,6 +15,7 @@
  */
 package com.example.android.miwok;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -73,6 +74,31 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
+
+
+        //onClickListener for report Card
+        TextView reportCardTextView = (TextView) findViewById(R.id.report_card);
+        reportCardTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                displayReport();
+            }
+        });
+    }
+
+    /**
+     * This method displays the name and the grades in the report card
+     */
+    private void displayReport() {
+        // Create new instance of report card object
+        ReportCard grades = new ReportCard("Alvin", 95, 95, 95);
+        // string IS-A CharSequence so Strings are accepted as input
+        Context context = getApplicationContext();
+        int duration = Toast.LENGTH_SHORT;
+
+        Toast toast = Toast.makeText(context, grades.toString(), duration);
+        toast.show();
     }
 
 }
