@@ -46,4 +46,10 @@
         android:background="@color/category_phrases"
         android:text="@string/category_phrases"/>
 
+    <TextView
+        android:id="@+id/report_card"
+        style="@style/CategoryStyle"
+        android:background="@color/category_report_Card"
+        android:text="@string/category_report_card"/>
+
 </LinearLayout>
