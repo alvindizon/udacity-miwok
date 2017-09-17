@@ -76,13 +76,13 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-
         //onClickListener for report Card
         TextView reportCardTextView = (TextView) findViewById(R.id.report_card);
         reportCardTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                displayReport();
+                Intent i = new Intent(MainActivity.this, ReportCardActivity.class);
+                startActivity(i);
             }
         });
     }
