@@ -22,6 +22,38 @@ public class ReportCard {
         mMathGrade = mathGrade;
     }
 
+    /**
+     * Getter for student name
+     * @return    current Student name
+     */
+    public String getStudentName(){
+        return mStudentName;
+    }
+
+    /**
+     * Getter for science grade
+     * @return    current science grade
+     */
+    public int getScienceGrade(){
+        return mScienceGrade;
+    }
+
+    /**
+     * Getter for English grade
+     * @return    current English grade
+     */
+    public int getEnglishGrade(){
+        return mEnglishGrade;
+    }
+
+    /**
+     * Getter for math grade
+     * @return    current math grade
+     */
+    public int getMathGrade(){
+        return mMathGrade;
+    }
+
     @Override
     public String toString() {
         String reportString = "Student name: " + mStudentName;
