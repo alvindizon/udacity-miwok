@@ -13,6 +13,9 @@ public class Word {
     // Default language translation
     private String mDefaultTranslation;
 
+    //image resource id
+    private int mImageResourceId;
+
     /**
      *  Constructor for new Word class
      * @param defaultTranslation is the word in a language that the user is already familiar with
@@ -40,5 +43,14 @@ public class Word {
     public String getMiwokTranslation(){
         return mMiwokTranslation;
     }
+
+    /**
+     *  Gets the image resource ID
+     * @return current image resource ID
+     */
+    public int getImageResourceId(){
+        return mImageResourceId;
+    }
+
 
 }
