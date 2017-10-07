@@ -29,6 +29,20 @@ public class Word {
     }
 
     /**
+     * Constructor for modified Word class
+     * Used by FamilyActivity, ColorsActivity, and NumbersActivity
+     * @param defaultTranslation is the word in a language that the user is already familiar with
+     *                           (e.g., English)
+     * @param miwokTranslation is equivalent word in the Miwok language
+     * @param imageResourceId is the resource ID of the image to be displayed beside the words
+     */
+    public Word(String defaultTranslation, String miwokTranslation, int imageResourceId) {
+        mMiwokTranslation = miwokTranslation;
+        mDefaultTranslation = defaultTranslation;
+        mImageResourceId = imageResourceId;
+    }
+
+    /**
      *  Gets the default translation
      * @return current default translation
      */
