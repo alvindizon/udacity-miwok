@@ -13,8 +13,12 @@ public class Word {
     // Default language translation
     private String mDefaultTranslation;
 
+    // value that represents no image was provided
+    private static final int NO_IMAGE_PROVIDED = -1;
+
     //image resource id
-    private int mImageResourceId;
+    private int mImageResourceId = NO_IMAGE_PROVIDED;
+
 
     /**
      *  Constructor for new Word class
@@ -64,6 +68,15 @@ public class Word {
      */
     public int getImageResourceId(){
         return mImageResourceId;
+    }
+
+    /**
+     *  Tells us whether or not an image is set to be displayed
+     * @return TRUE if mImageResourceId has value other than -1,
+     *          FALSE if mImageResourceId remains -1
+     */
+    public boolean hasImage(){
+        return mImageResourceId != NO_IMAGE_PROVIDED;
     }
 
 

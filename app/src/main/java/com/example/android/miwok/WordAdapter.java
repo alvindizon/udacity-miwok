@@ -67,22 +67,24 @@ public class WordAdapter extends ArrayAdapter<Word> {
                 (TextView) listItemView.findViewById(R.id.miwok_text_view);
         miwokTranslationText.setText(currentWord.getMiwokTranslation());
 
-        Log.v(TAG, "currentWord img res id: " + currentWord.getImageResourceId());
-
         //Find the ImageView in the list_item.xml layout
         ImageView iconView = (ImageView) listItemView.findViewById(R.id.image);
-        iconView.setImageResource(currentWord.getImageResourceId());
 
-        // if current word has image resource id of zero, it means that we are currently in
-        // PhrasesActivity. Set visibility to GONE if this is the case
-        // GONE: doesn't take up space
-        // INVISIBLE: Still takes up layout space
-        if(0 == currentWord.getImageResourceId()){
-            iconView.setVisibility(View.GONE);
-        }
-        else{
+        // check if current Word has image to be displayed
+        if(currentWord.hasImage()){
+            // display image using resource ID
+            iconView.setImageResource(currentWord.getImageResourceId());
+
+            // set Visibility to VISIBLE since previous setting might be GONE
             iconView.setVisibility(View.VISIBLE);
         }
+        else{
+            // if no image has been provided, set ImageView visibility to GONE
+            // GONE: ImageView invisible, will not take up layout space
+            // INVISIBLE: ImageView not visible but will still take up space
+            iconView.setVisibility(View.GONE);
+        }
+
 
         // return the whole layout so ListView can display it
         return listItemView;
