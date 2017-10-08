@@ -4,10 +4,12 @@ import android.app.Activity;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -17,6 +19,8 @@ import java.util.ArrayList;
  */
 
 public class WordAdapter extends ArrayAdapter<Word> {
+    private static final String TAG = "WordAdapter";
+
 
     /**
      *   constructor adapted from ArrayAdapter (Context context, int resource,T[] objects)
@@ -62,6 +66,23 @@ public class WordAdapter extends ArrayAdapter<Word> {
         TextView miwokTranslationText =
                 (TextView) listItemView.findViewById(R.id.miwok_text_view);
         miwokTranslationText.setText(currentWord.getMiwokTranslation());
+
+        Log.v(TAG, "currentWord img res id: " + currentWord.getImageResourceId());
+
+        //Find the ImageView in the list_item.xml layout
+        ImageView iconView = (ImageView) listItemView.findViewById(R.id.image);
+        iconView.setImageResource(currentWord.getImageResourceId());
+
+        // if current word has image resource id of zero, it means that we are currently in
+        // PhrasesActivity. Set visibility to GONE if this is the case
+        // GONE: doesn't take up space
+        // INVISIBLE: Still takes up layout space
+        if(0 == currentWord.getImageResourceId()){
+            iconView.setVisibility(View.GONE);
+        }
+        else{
+            iconView.setVisibility(View.VISIBLE);
+        }
 
         // return the whole layout so ListView can display it
         return listItemView;
