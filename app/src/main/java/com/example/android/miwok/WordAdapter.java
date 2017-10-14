@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,6 +22,9 @@ import java.util.ArrayList;
 public class WordAdapter extends ArrayAdapter<Word> {
     private static final String TAG = "WordAdapter";
 
+    // int variable for bg colot resource ID
+    private int mColorResourceId;
+
 
     /**
      *   constructor adapted from ArrayAdapter (Context context, int resource,T[] objects)
@@ -29,8 +33,9 @@ public class WordAdapter extends ArrayAdapter<Word> {
      * @param context Used to inflate layout file
      * @param words  List of Word objects to display in a  list
      */
-    public WordAdapter(Activity context, ArrayList<Word> words){
+    public WordAdapter(Activity context, ArrayList<Word> words, int colorResourceId){
         super(context, 0, words);
+        mColorResourceId = colorResourceId;
     }
 
     /**
@@ -85,6 +90,12 @@ public class WordAdapter extends ArrayAdapter<Word> {
             iconView.setVisibility(View.GONE);
         }
 
+        // find the LinearLayout part in list_item.xml
+        View textContainer = listItemView.findViewById(R.id.text_container);
+        // get color associated with resource Id
+        int color = ContextCompat.getColor(getContext(), mColorResourceId);
+        // use this to set the appropriate background color
+        textContainer.setBackgroundColor(color);
 
         // return the whole layout so ListView can display it
         return listItemView;
