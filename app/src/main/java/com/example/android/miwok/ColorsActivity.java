@@ -27,7 +27,7 @@ public class ColorsActivity extends AppCompatActivity {
         words.add(new Word("mustard yellow", "chiwiiṭә", R.drawable.color_mustard_yellow));
 
         // Create a WordAdapter, whose source is a list of Word objects
-        WordAdapter adapter = new WordAdapter(this, words);
+        WordAdapter adapter = new WordAdapter(this, words, R.color.category_colors);
 
         /** connect the adapter to a gridView object
          * this object should be specified by an ID*

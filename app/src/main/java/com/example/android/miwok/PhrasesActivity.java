@@ -31,7 +31,7 @@ public class PhrasesActivity extends AppCompatActivity {
 
 
         // Create a WordAdapter, whose source is a list of Word objects
-        WordAdapter adapter = new WordAdapter(this, words);
+        WordAdapter adapter = new WordAdapter(this, words, R.color.category_phrases);
 
         /** connect the adapter to a gridView object
          * this object should be specified by an ID*
