@@ -41,11 +41,15 @@ public class Word {
      * Used by FamilyActivity, ColorsActivity, and NumbersActivity
      * @param defaultTranslation is the word in a language that the user is already familiar with
      *                           (e.g., English)
+     * @param audioFileName is the audio file for each Miwok word
      * @param miwokTranslation is equivalent word in the Miwok language
      * @param imageResourceId is the resource ID of the image to be displayed beside the words
      */
-    public Word(String defaultTranslation, String miwokTranslation, int imageResourceId) {
+    public Word(String defaultTranslation,  int audioFileName, String miwokTranslation,
+                int imageResourceId)
+    {
         mMiwokTranslation = miwokTranslation;
+        mAudioFileName = audioFileName;
         mDefaultTranslation = defaultTranslation;
         mImageResourceId = imageResourceId;
     }
