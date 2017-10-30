@@ -48,13 +48,17 @@ public class PhrasesActivity extends AppCompatActivity {
          */
         listView.setAdapter(adapter);
 
+        // this listener will wait for a click event
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                // get Word object at current position
                 Word currentWord = (Word) adapterView.getItemAtPosition(i);
                 MediaPlayer audioPlayer;
+                // create mediaplayer object and set the corresponding audio file as media source
                 audioPlayer = MediaPlayer.create(PhrasesActivity.this,
                             currentWord.getAudioFileName());
+                // start playing the audio file
                 audioPlayer.start();
 
             }
