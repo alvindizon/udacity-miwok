@@ -12,6 +12,9 @@ import java.util.ArrayList;
 public class FamilyActivity extends AppCompatActivity {
     private static final String TAG = "FamilyActivity";
 
+    // variable for audio playback
+    private MediaPlayer audioPlayer;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -53,7 +56,6 @@ public class FamilyActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 // get Word object at current position
                 Word currentWord = (Word) adapterView.getItemAtPosition(i);
-                MediaPlayer audioPlayer;
                 // create mediaplayer object and set the corresponding audio file as media source
                 audioPlayer = MediaPlayer.create(FamilyActivity.this,
                         currentWord.getAudioFileName());
