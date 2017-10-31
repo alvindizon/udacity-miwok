@@ -22,7 +22,7 @@ public class ColorsActivity extends AppCompatActivity {
         setContentView(R.layout.word_list);
 
         // create an ArrayList of Word objects
-        ArrayList<Word> words = new ArrayList<>();
+        final ArrayList<Word> words = new ArrayList<>();
         words.add(new Word("red", R.raw.color_red, "weṭeṭṭi", R.drawable.color_red));
         words.add(new Word("green", R.raw.color_green, "chokokki", R.drawable.color_green));
         words.add(new Word("brown", R.raw.color_brown, "ṭakaakki", R.drawable.color_brown));
@@ -52,7 +52,7 @@ public class ColorsActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 // get Word object at current position
-                Word currentWord = (Word) adapterView.getItemAtPosition(i);
+                Word currentWord = words.get(i);
 
                 if(audioPlayer != null){
                     audioPlayer.stop();
