@@ -22,7 +22,7 @@ public class NumbersActivity extends AppCompatActivity {
         setContentView(R.layout.word_list);
 
         // create an ArrayList of Word objects
-        final ArrayList<Word> words = new ArrayList<>();
+        ArrayList<Word> words = new ArrayList<>();
         words.add(new Word("one", R.raw.number_one, "lutti", R.drawable.number_one));
         words.add(new Word("two", R.raw.number_two, "otiiko", R.drawable.number_two));
         words.add(new Word("three", R.raw.number_three, "tolookosu", R.drawable.number_three));
@@ -55,7 +55,7 @@ public class NumbersActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 // get Word object at current position
-                Word currentWord = words.get(i);
+                Word currentWord = (Word) adapterView.getItemAtPosition(i);
 
                 if(audioPlayer != null){
                     audioPlayer.stop();

@@ -22,7 +22,7 @@ public class PhrasesActivity extends AppCompatActivity {
         setContentView(R.layout.word_list);
 
         // create an ArrayList of Word objects
-        final ArrayList<Word> words = new ArrayList<>();
+        ArrayList<Word> words = new ArrayList<>();
         words.add(new Word("Where are you going?", R.raw.phrase_where_are_you_going, "minto wuksus"));
         words.add(new Word("What is your name?", R.raw.phrase_what_is_your_name, "tinnә oyaase'nә"));
         words.add(new Word("My name is...", R.raw.phrase_my_name_is, "oyaaset..."));
@@ -56,7 +56,7 @@ public class PhrasesActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 // get Word object at current position
-                Word currentWord = words.get(i);
+                Word currentWord = (Word) adapterView.getItemAtPosition(i);
 
                 if(audioPlayer != null){
                     audioPlayer.stop();

@@ -22,7 +22,7 @@ public class FamilyActivity extends AppCompatActivity {
         setContentView(R.layout.word_list);
 
         // create an ArrayList of Word objects
-        final ArrayList<Word> words = new ArrayList<>();
+        ArrayList<Word> words = new ArrayList<>();
         words.add(new Word("father", R.raw.family_father, "әpә", R.drawable.family_father));
         words.add(new Word("mother", R.raw.family_mother, "әṭa", R.drawable.family_mother));
         words.add(new Word("son", R.raw.family_son, "angsi", R.drawable.family_son));
@@ -55,7 +55,7 @@ public class FamilyActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 // get Word object at current position
-                Word currentWord = words.get(i);
+                Word currentWord = (Word) adapterView.getItemAtPosition(i);
 
                 if(audioPlayer != null){
                     audioPlayer.stop();
