@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -14,6 +15,15 @@ public class FamilyActivity extends AppCompatActivity {
 
     // variable for audio playback
     private MediaPlayer audioPlayer;
+
+    private MediaPlayer.OnCompletionListener mAudioPlayerListener =
+            new MediaPlayer.OnCompletionListener(){
+        @Override
+        public void onCompletion(MediaPlayer mediaPlayer) {
+            Toast.makeText(getApplicationContext(), "I'm done", Toast.LENGTH_SHORT).show();
+            releaseMediaPlayer();
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,18 +67,30 @@ public class FamilyActivity extends AppCompatActivity {
                 // get Word object at current position
                 Word currentWord = (Word) adapterView.getItemAtPosition(i);
 
-                if(audioPlayer != null){
-                    audioPlayer.stop();
-                    audioPlayer.release();
-                    audioPlayer = null;
-                }
+                // call Helper method to release allocated memory before creating new MediaPlayer
+                releaseMediaPlayer();
+
                 // create mediaplayer object and set the corresponding audio file as media source
                 audioPlayer = MediaPlayer.create(FamilyActivity.this,
                         currentWord.getAudioFileName());
                 // start playing the audio file
                 audioPlayer.start();
+
+                // setup completion listener
+                audioPlayer.setOnCompletionListener(mAudioPlayerListener);
             }
         });
 
+    }
+
+    /**
+     * Helper method that releases allocated memory
+     */
+    private void releaseMediaPlayer(){
+        if(audioPlayer != null){
+            // Release memory resources allocated for the MediaPlayer object
+            audioPlayer.release();
+            audioPlayer = null;
+        }
     }
 }
