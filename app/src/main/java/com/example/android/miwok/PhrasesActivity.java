@@ -57,6 +57,12 @@ public class PhrasesActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 // get Word object at current position
                 Word currentWord = (Word) adapterView.getItemAtPosition(i);
+
+                if(audioPlayer != null){
+                    audioPlayer.stop();
+                    audioPlayer.release();
+                    audioPlayer = null;
+                }
                 // create mediaplayer object and set the corresponding audio file as media source
                 audioPlayer = MediaPlayer.create(PhrasesActivity.this,
                             currentWord.getAudioFileName());

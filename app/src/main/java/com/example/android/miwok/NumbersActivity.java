@@ -57,6 +57,11 @@ public class NumbersActivity extends AppCompatActivity {
                 // get Word object at current position
                 Word currentWord = (Word) adapterView.getItemAtPosition(i);
 
+                if(audioPlayer != null){
+                    audioPlayer.stop();
+                    audioPlayer.release();
+                    audioPlayer = null;
+                }
                 // create mediaplayer object and set the corresponding audio file as media source
                 audioPlayer = MediaPlayer.create(NumbersActivity.this,
                         currentWord.getAudioFileName());
