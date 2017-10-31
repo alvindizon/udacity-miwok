@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -21,7 +20,6 @@ public class PhrasesActivity extends AppCompatActivity {
             new MediaPlayer.OnCompletionListener(){
         @Override
         public void onCompletion(MediaPlayer mediaPlayer) {
-            Toast.makeText(getApplicationContext(), "I'm done", Toast.LENGTH_SHORT).show();
             releaseMediaPlayer();
         }
     };
