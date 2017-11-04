@@ -13,37 +13,52 @@
         android:layout_width="@dimen/list_item_height"
         android:layout_height="@dimen/list_item_height"
         android:src="@mipmap/ic_launcher"/>
-    
+
     <LinearLayout
-        android:id="@+id/text_container"
+        android:id="@+id/word_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:paddingLeft="16dp">
+        android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/miwok_text_view"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
+        <LinearLayout
+            android:id="@+id/text_container"
             android:layout_weight="1"
-            android:gravity="bottom"
-            android:textColor="@android:color/white"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            tools:text="Miwok"/>
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingLeft="16dp">
 
-        <TextView
-            android:id="@+id/default_text_view"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:gravity="top"
-            android:textColor="@android:color/white"
-            android:textSize="18sp"
-            tools:text="Default"/>
+            <TextView
+                android:id="@+id/miwok_text_view"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="bottom"
+                android:textColor="@android:color/white"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                tools:text="Miwok"/>
+
+            <TextView
+                android:id="@+id/default_text_view"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="top"
+                android:textColor="@android:color/white"
+                android:textSize="18sp"
+                tools:text="Default" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/play_icon_img_view"
+            android:src="@drawable/ic_play_arrow_white_36dp"
+            android:layout_height="@dimen/play_icon_dimen"
+            android:layout_width="@dimen/play_icon_dimen"
+            android:layout_marginRight="16dp"
+            android:layout_gravity="center" />
 
     </LinearLayout>
-
-
 
 </LinearLayout>
