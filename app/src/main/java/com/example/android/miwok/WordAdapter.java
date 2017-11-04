@@ -88,12 +88,12 @@ public class WordAdapter extends ArrayAdapter<Word> {
         }
 
         // find the LinearLayout part in list_item.xml
-        View textContainer = listItemView.findViewById(R.id.text_container);
+        // this LinearLayout also contains the play icon
+        View textContainer = listItemView.findViewById(R.id.word_container);
         // get color associated with resource Id
         int color = ContextCompat.getColor(getContext(), mColorResourceId);
         // use this to set the appropriate background color
         textContainer.setBackgroundColor(color);
-
         // return the whole layout so ListView can display it
         return listItemView;
     }
