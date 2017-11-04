@@ -87,7 +87,7 @@ public class WordAdapter extends ArrayAdapter<Word> {
             iconView.setVisibility(View.GONE);
         }
 
-        // find the LinearLayout part in list_item.xml
+        // find the RelativeLayout that contains the words and play icon in list_item.xml
         View textContainer = listItemView.findViewById(R.id.text_container);
         // get color associated with resource Id
         int color = ContextCompat.getColor(getContext(), mColorResourceId);
