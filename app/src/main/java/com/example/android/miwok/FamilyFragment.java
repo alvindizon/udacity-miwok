@@ -17,7 +17,7 @@ import java.util.ArrayList;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class NumbersFragment extends Fragment {
+public class FamilyFragment extends Fragment {
 
     // variable for audio playback
     private MediaPlayer audioPlayer;
@@ -36,7 +36,7 @@ public class NumbersFragment extends Fragment {
 
     // this listener is triggered when audio focus changes
     private AudioManager.OnAudioFocusChangeListener afChangeListener =
-            new AudioManager.OnAudioFocusChangeListener(){
+            new AudioManager.OnAudioFocusChangeListener() {
         @Override
         public void onAudioFocusChange(int focusChange) {
             if(focusChange == AudioManager.AUDIOFOCUS_GAIN){
@@ -60,7 +60,7 @@ public class NumbersFragment extends Fragment {
     };
 
 
-    public NumbersFragment() {
+    public FamilyFragment() {
         // Required empty public constructor
     }
 
@@ -75,23 +75,24 @@ public class NumbersFragment extends Fragment {
 
         // create an ArrayList of Word objects
         ArrayList<Word> words = new ArrayList<>();
-        words.add(new Word("one", R.raw.number_one, "lutti", R.drawable.number_one));
-        words.add(new Word("two", R.raw.number_two, "otiiko", R.drawable.number_two));
-        words.add(new Word("three", R.raw.number_three, "tolookosu", R.drawable.number_three));
-        words.add(new Word("four", R.raw.number_four, "oyyisa", R.drawable.number_four));
-        words.add(new Word("five", R.raw.number_five, "massokka", R.drawable.number_five));
-        words.add(new Word("six", R.raw.number_six, "temmokka", R.drawable.number_six));
-        words.add(new Word("seven", R.raw.number_seven, "kenekaku", R.drawable.number_seven));
-        words.add(new Word("eight", R.raw.number_eight, "kawinta", R.drawable.number_eight));
-        words.add(new Word("nine", R.raw.number_nine, "wo’e", R.drawable.number_nine));
-        words.add(new Word("ten", R.raw.number_ten, "na’aacha", R.drawable.number_ten));
+        words.add(new Word("father", R.raw.family_father, "әpә", R.drawable.family_father));
+        words.add(new Word("mother", R.raw.family_mother, "әṭa", R.drawable.family_mother));
+        words.add(new Word("son", R.raw.family_son, "angsi", R.drawable.family_son));
+        words.add(new Word("daughter", R.raw.family_daughter, "tune", R.drawable.family_daughter));
+        words.add(new Word("older brother", R.raw.family_older_brother, "taachi", R.drawable.family_older_brother));
+        words.add(new Word("younger brother", R.raw.family_younger_brother, "chalitti", R.drawable.family_younger_brother));
+        words.add(new Word("older sister", R.raw.family_older_sister, "teṭe", R.drawable.family_older_sister));
+        words.add(new Word("younger sister", R.raw.family_younger_sister, "kolliti", R.drawable.family_younger_sister));
+        words.add(new Word("grandmother", R.raw.family_grandmother, "ama", R.drawable.family_grandmother));
+        words.add(new Word("grandfather", R.raw.family_grandfather, "paapa", R.drawable.family_grandfather));
 
 
         // Create a WordAdapter, whose source is a list of Word objects
-        WordAdapter adapter = new WordAdapter(getActivity(), words, R.color.category_numbers);
+        WordAdapter adapter = new WordAdapter(getActivity(), words, R.color.category_family);
 
-        /** connect the adapter to a listView object
+        /** connect the adapter to a gridView object
          * this object should be specified by an ID*
+         * rootView contains child views such as listView
          */
         ListView listView = (ListView) rootView.findViewById(R.id.list);
 
@@ -126,10 +127,10 @@ public class NumbersFragment extends Fragment {
                             currentWord.getAudioFileName());
                     // start playing the audio file
                     audioPlayer.start();
+
                     // setup completion listener
                     audioPlayer.setOnCompletionListener(mAudioPlayerListener);
                 }
-
             }
         });
 
@@ -150,7 +151,6 @@ public class NumbersFragment extends Fragment {
         if(audioPlayer != null){
             // Release memory resources allocated for the MediaPlayer object
             audioPlayer.release();
-            // Set object to null, so we can tell if audioPlayer has been setup or not
             audioPlayer = null;
             // abandon audio focus and unregister audio focus listener,
             // so we don't get callbacks anymore
