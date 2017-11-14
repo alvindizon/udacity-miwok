@@ -38,7 +38,7 @@ public class Word {
 
     /**
      * Constructor for modified Word class
-     * Used by FamilyActivity, ColorsActivity, and NumbersActivity
+     * Used by FamilyFragment, ColorsFragment, and NumbersFragment
      * @param defaultTranslation is the word in a language that the user is already familiar with
      *                           (e.g., English)
      * @param audioFileName is the audio file for each Miwok word
