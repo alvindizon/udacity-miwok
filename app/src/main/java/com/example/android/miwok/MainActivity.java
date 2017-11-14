@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
 
         // Create an adapter that knows which fragment should be shown on each page
-        MainActivityFragmentPager adapter = new MainActivityFragmentPager(getSupportFragmentManager());
+        MainActivityFragmentPager adapter = new MainActivityFragmentPager(this, getSupportFragmentManager());
 
         // Set the adapter onto the view pager
         viewPager.setAdapter(adapter);
