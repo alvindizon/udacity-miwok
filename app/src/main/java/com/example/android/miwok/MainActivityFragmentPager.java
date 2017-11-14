@@ -10,6 +10,9 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 public class MainActivityFragmentPager extends FragmentPagerAdapter {
 
+    final int PAGE_COUNT = 4;
+    private String categoryNames[] = new String[] { "Numbers", "Family", "Colors", "Phrases" };
+
     public MainActivityFragmentPager(FragmentManager fm) {
         super(fm);
     }
@@ -32,6 +35,11 @@ public class MainActivityFragmentPager extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
-        return 4;
+        return PAGE_COUNT;
+    }
+
+    @Override
+    public CharSequence getPageTitle(int position) {
+        return categoryNames[position];
     }
 }
